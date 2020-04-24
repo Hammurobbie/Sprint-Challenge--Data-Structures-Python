@@ -1,4 +1,5 @@
 import time
+from lru_cache import LRUCache
 
 start_time = time.time()
 
@@ -14,10 +15,18 @@ duplicates = []  # Return the list of duplicates in this data structure
 
 # OG time complexity O(n^2)
 
+lru = LRUCache(10000)
+
+for name in names_1:
+    lru.set(name, name)
+
+for name2 in names_2:
+    lru.get(name2, duplicates)
+
 # Replace the nested for loops below with your improvements
-for name_1 in names_1:
-    if name_1 in names_2:
-        duplicates.append(name_1)
+# for name_1 in names_1:
+#     if name_1 in names_2:
+#         duplicates.append(name_1)
 
 
 end_time = time.time()
