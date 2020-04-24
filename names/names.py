@@ -1,4 +1,5 @@
 import time
+from lru_cache import LRUCache
 
 start_time = time.time()
 
@@ -12,15 +13,31 @@ f.close()
 
 duplicates = []  # Return the list of duplicates in this data structure
 
+# OG time complexity O(n^2)
+
+lru = LRUCache(10000)
+
+for name in names_1:
+    lru.set(name, name)
+
+for name2 in names_2:
+    lru.get(name2, duplicates)
+
 # Replace the nested for loops below with your improvements
-for name_1 in names_1:
-    for name_2 in names_2:
-        if name_1 == name_2:
-            duplicates.append(name_1)
+# for name_1 in names_1:
+#     if name_1 in names_2:
+#         duplicates.append(name_1)
+
 
 end_time = time.time()
-print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
-print (f"runtime: {end_time - start_time} seconds")
+
+print("\n", "\n")
+print("Number of duplicates:", len(duplicates), "\n")
+print("Duplicates:", "\n")
+print(duplicates, "\n")
+print("Runtime:", end_time - start_time, "seconds", "\n", "\n")
+# print (f'{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n')
+# print (f'runtime: {end_time - start_time} seconds')
 
 # ---------- Stretch Goal -----------
 # Python has built-in tools that allow for a very efficient approach to this problem
