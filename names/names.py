@@ -31,9 +31,11 @@ for name2 in names_2:
 
 end_time = time.time()
 
-print(len(duplicates))
-print(duplicates)
-print(end_time - start_time)
+print("\n", "\n")
+print("Number of duplicates:", len(duplicates), "\n")
+print("Duplicates:", "\n")
+print(duplicates, "\n")
+print("Runtime:", end_time - start_time, "seconds", "\n", "\n")
 # print (f'{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n')
 # print (f'runtime: {end_time - start_time} seconds')
 
